@@ -58,7 +58,6 @@ final_perc_table <- perc_table %>%
 
 # reorder for plotting based on percentage column
 final_perc_table$damage <- reorder(final_perc_table$damage, rowSums(final_perc_table[4]))
-final_perc_table$
 
 # create stacked bar chart
 plot <- ggplot(arrange(final_perc_table, damage)) + 
@@ -76,4 +75,5 @@ plot <- ggplot(arrange(final_perc_table, damage)) +
   theme(legend.title = element_blank(),
         legend.text = element_text(size = 10),
         panel.grid.major.y = element_line(color = "black", size = .4))
+
 ggsave("Tidy_Tuesday_Bird_Strikes.png")  
