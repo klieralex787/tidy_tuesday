@@ -30,7 +30,7 @@ park_visits_filter <- park_visits %>%
                      ifelse(unit_name == "Shenandoah National Park", "Shenandoah National Park", "Other* National Parks")))))
 
 # Plot yearly visitors for each park
-ggplot(data = park_visits_filter) + 
+parks_plot <- ggplot(data = park_visits_filter) + 
   geom_line(aes(x = year, y = visitors, group = unit_name, color = park_name, alpha = park_name)) +
   scale_x_continuous(breaks = seq(1940, 2020, 10)) + 
   scale_y_continuous(labels = scales::comma, breaks = seq(0, 12000000, 2000000)) + 
@@ -44,6 +44,9 @@ ggplot(data = park_visits_filter) +
   scale_alpha_manual(values = c(1,1,1,.4,1)) + 
   theme(legend.title = element_blank(),
         legend.position = "bottom") 
+
+# save plot
+ggsave(filename = "National_Parks_Plot", plot = parks_plot, device = "jpeg")
 
 # Stories flushed out by graph, and indicated by different colors
 # 1. All Parks saw a large decrease/no attendance during the time of WW2
