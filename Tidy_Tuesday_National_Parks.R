@@ -12,7 +12,7 @@ top <- park_visits %>%
   filter(year == "Total" & unit_type == "National Park") %>%
   arrange(desc(visitors)) %>%
   select(unit_name, visitors)
-print(top)
+#print(top)
 
 # Create a list for filtering
 parks <- c("Great Smoky Mountains National Park","Grand Canyon National Park","Yosemite National Park",
@@ -45,8 +45,6 @@ parks_plot <- ggplot(data = park_visits_filter) +
   theme(legend.title = element_blank(),
         legend.position = "bottom") 
 
-# save plot
-ggsave(filename = "National_Parks_Plot", plot = parks_plot, device = "jpeg")
 
 # Stories flushed out by graph, and indicated by different colors
 # 1. All Parks saw a large decrease/no attendance during the time of WW2
